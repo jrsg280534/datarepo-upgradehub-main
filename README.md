@@ -8,11 +8,11 @@ Este repositorio contiene todas las herramientas proporcionadas en el *Data Anal
 Al final de cada sesión, el alumno debe subir el notebook correspondiente a los ejercicios de la misma en la carpeta oportuna, bajo la siguiente nomenclatura:
 
 ```txt
-<numero-semana>_<numero-unidad>_<usuario-github>.ipynb
+<numero-semana>_<numero-unidad>_<nombre>_<primer-apellido>_<segundo-apellido>.ipynb
 ```
 
-A modo de ejemplo, para el usuario *hedrergudene*, la entrega de la primera tarea de la semana uno se haría de la forma:
+En case de tener un nombre compuesto, se pondrá con guiones, y todo el texto irá en minúscula y sin tildes (las eñes sí son admisibles). A modo de ejemplo, para el usuario ficticio *José Luis Martínez Ramirez*, la entrega de la primera tarea de la semana uno se haría de la forma:
 
 ```txt
-01_01_hedrergudene.ipynb
+01_01_jose-antonio_martinez_ramirez.ipynb
 ```
