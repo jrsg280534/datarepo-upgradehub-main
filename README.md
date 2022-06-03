@@ -11,7 +11,7 @@ Al final de cada sesión, el alumno debe subir el notebook correspondiente a los
 <numero-semana>_<numero-unidad>_<nombre>_<primer-apellido>_<segundo-apellido>.ipynb
 ```
 
-En case de tener un nombre compuesto, se pondrá con guiones, y todo el texto irá en minúscula y sin tildes (las eñes sí son admisibles). A modo de ejemplo, para el usuario ficticio *José Luis Martínez Ramirez*, la entrega de la primera tarea de la semana uno se haría de la forma:
+En caso de tener un nombre compuesto, se pondrá con guiones, y todo el texto irá en minúscula y sin tildes (las eñes sí son admisibles). A modo de ejemplo, para el usuario ficticio *José Luis Martínez Ramirez*, la entrega de la primera tarea de la semana uno se haría de la forma:
 
 ```txt
 01_01_jose-antonio_martinez_ramirez.ipynb
