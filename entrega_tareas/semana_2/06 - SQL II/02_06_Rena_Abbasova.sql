@@ -1,30 +1,43 @@
-SELECT * FROM PRODUCTO;
+SELECT codigo, CONCAT(producto.nombre,', ',precio)
+FROM producto INNER JOIN consta ON codigo = codigo_pr
+INNER JOIN pedido ON numero_p = numero
+INNER JOIN empleado ON empleado.dni = pedido.dni_etm
+WHERE empleado.nombre LIKE "%Luis%"
+ORDER BY dni_etm DESC;
 
-SELECT numero, dni_r, hora_rep FROM pedido WHERE hora_rep > '19:00' AND hora_rep IS NOT null;
+SELECT PR.Codigo, CONCAT(PR.Nombre, ' ' , PR.Precio) AS NOMBRE_PRECIO
+FROM PRODUCTO PR, PEDIDO P, CONSTA C, EMPLEADO E
+WHERE PR.Codigo = C.Codigo_Pr
+AND P.Numero= C.Numero_P
+AND P.DNI_ETM= E.DNI
+AND E.nombre LIKE '%Luis%' OR "%María Luisa%"
+ORDER BY P.Fecha DESC;
 
-SELECT * FROM empleado HAVING salario >=900 AND salario <= 1000 AND salario IS NOT null;
+SELECT repartidor.nombre, count(*) as cantidad_repartos,
+TIME_FORMAT(AVG(TIMEDIFF(Hora_rep, Hora_pre)),'%T') AS tiempo_entrega
+FROM repartidor INNER JOIN pedido on repartidor.DNI = pedido.DNI_R
+GROUP BY repartidor.DNI
+ORDER BY tiempo_entrega;
 
--- SELECT * FROM empleado WHERE salario (900,1000);
+select Codigo, Nombre, Precio
+from producto
+where Precio = (select max(Precio) from producto)
+or Precio = (select min(Precio) from producto);
 
-SELECT * FROM empleado WHERE salario BETWEEN 900 AND 1000;
-
-SELECT numero, importe FROM pedido WHERE fecha BETWEEN '2020-11-01' AND '2020-11-30' AND importe > 15;
-
-SELECT DNI_R, COUNT(*) AS TOTAL_PEDIDOS_REPARTIDOS FROM pedido WHERE dni_R IS NOT null GROUP BY dni_R;
-
-SET lc_time_names = 'es_ES';
-SELECT MONTHNAME(fecha) as Mes, COUNT(Numero) as Cant_pedidos FROM PEDIDO P
-WHERE P.Numero and fecha IS NOT NULL GROUP BY MONTH(fecha);
-
-SELECT CONCAT(DNI,', ', Nombre) as Identificación_completa FROM EMPLEADO WHERE Turno
-IN ('tarde','noche') ORDER BY dni DESC;
-
-SELECT * FROM producto
-WHERE precio >= (select AVG(precio) FROM producto)
-ORDER BY precio DESC;
-
-select nombre, dni FROM EMPLEADO WHERE dni NOT IN (SELECT DISTINCT Dni_EP FROM PEDIDO);
-SELECT nombre, dni FROM empleado LEFT JOIN pedido on empleado.dni=pedido.dni_ep WHERE pedido.dni_ep IS null;
+SELECT nombre, codigo, COUNT(*) AS cantidad_pedidos FROM producto
+INNER JOIN consta ON producto.codigo = consta.codigo_pr
+INNER JOIN pedido ON pedido.numero = consta.numero_p
+GROUP BY codigo_pr
+HAVING cantidad_pedidos > 1
+ORDER BY numero DESC;
 
 
+
+SELECT CONCAT(EMPLEADO.NOMBRE,EMPLEADO.NSS)
+FROM EMPLEADO, PEDIDO, CONSTA, REPARTIDOR
+WHERE EMPLEADO.DNI = PEDIDO.DNI_EP
+AND PEDIDO.DNI_R = REPARTIDOR.DNI
+AND PEDIDO.NUMERO = CONSTA.NUMERO_P
+AND CONSTA.CODIGO_Pr ='13'
+AND REPARTIDOR.NOMBRE like '%LAURA%';
 
