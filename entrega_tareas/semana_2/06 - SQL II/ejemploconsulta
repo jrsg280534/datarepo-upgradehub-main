@@ -1,0 +1,14 @@
+CREATE TABLE [dbo].[coches](
+    
+	[ID] [int] NOT NULL,
+	[Nombre] [varchar](100) NULL,
+	[Año] [int] NOT NULL,
+	[Precio] [float] NOT NULL)
+
+INSERT INTO coches VALUES (1, 'Toyota Camry', 2018, 2000)
+INSERT INTO coches VALUES (2, 'Honda Civic', 2019, 2200)
+INSERT INTO coches VALUES (3, 'Chevrolet Silverado', 2017, 1800)
+INSERT INTO coches VALUES (4, 'Ford F-150', 2020, 2500)
+INSERT INTO coches VALUES (5, 'Nissan Altima', 2021, 3000)
+
+

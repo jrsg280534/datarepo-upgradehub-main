@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+    <title>Ejemplo Coches</title>
+
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+   
+</head>
+
+<body>
+
+
+    
+    <h2>Lista Coches</h2>
+    <a class="btn btn-primary" href="addcar">Añadir nuevo coche</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Año</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Borrar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for car in cars %}
+            <tr>
+                <td>{{ car.id }}</th>
+                <td>{{ car.name }}</td>
+                <td>{{ car.year }}</td>
+                <td>{{ car.price }}</td>
+                <td><a href='updatecar/{{ car.id }}'>Editar</a></td>
+                <td><a href='deletecar/{{ car.id }}'>Borrar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
